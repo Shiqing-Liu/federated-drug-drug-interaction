@@ -1,6 +1,10 @@
 # Federated GNN Link Prediction on ogbl-ddi
 
 <p align="center">
+  <img src="banner.png" alt="Federated GNN Link Prediction — Drug–Drug Interactions · FedAvg · GraphSAGE" width="100%">
+</p>
+
+<p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
   <img src="https://img.shields.io/badge/Python-3.12-3776AB.svg" alt="Python 3.12">
   <img src="https://img.shields.io/badge/PyTorch-2.11-EE4C2C.svg" alt="PyTorch 2.11">
