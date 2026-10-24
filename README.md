@@ -37,7 +37,7 @@ The primary metric is **Hits@20**, scored with the official OGB evaluator.
 
 ## Table of Contents
 
-- [Background](#background)
+- [Dataset](#dataset)
 - [Method](#method)
 - [Evaluation protocol](#evaluation-protocol)
 - [Installation](#installation)
@@ -49,20 +49,14 @@ The primary metric is **Hits@20**, scored with the official OGB evaluator.
 - [References](#references)
 - [Citation](#citation)
 
-## Background
+## Dataset
 
-**Dataset.**
 [`ogbl-ddi`](https://ogb.stanford.edu/docs/linkprop/#ogbl-ddi) is a homogeneous,
 undirected graph of **4,267 drug nodes** and **~1.33M edges** (known
 interactions), with **no node or edge features** — the model learns node
 representations from structure alone. Its official **protein-target split**
 places validation/test interactions on drugs acting on different proteins than
 the training edges, so the model must generalize beyond the interactions it saw.
-
-**Metric.** For every true interaction, its score is compared against a fixed,
-shared set of **~100,000 negative drug pairs**; it is a "hit" if it ranks above
-the K-th highest negative. **Hits@K** is the fraction of positives that are hits.
-This repo reports Hits@10, **Hits@20** (primary), and Hits@30.
 
 ## Method
 
@@ -115,7 +109,12 @@ flowchart TD
 
 ## Evaluation protocol
 
-Following the OGB rules:
+**Metric.** For every true interaction, its score is compared against a fixed,
+shared set of **~100,000 negative drug pairs**; it is a "hit" if it ranks above
+the K-th highest negative. **Hits@K** is the fraction of positives that are hits.
+This repo reports Hits@10, **Hits@20** (primary), and Hits@30.
+
+The evaluation follows the OGB rules:
 
 - **Validation-only model selection.** `summarize.py` reports the test Hits@20 at
   the round whose **validation** Hits@20 is highest; test never picks a round.
